@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <title>API Mercado Público</title>
+</head>
+<body>
+<!-- <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Código</th>
+            <th>Empresa</th>
+    </thead>
+    <tbody id="data">
+    </tbody>
+</table>
+ -->
+ <h1 class="text-center mt-4 text-5xl">API Mercado Público</h1>
+ <h2 class="text-center text-2xl py-4 m-0">By Datapro.cl</h2>
+    <div class="flex justify-left">
+		  <div class="relative m-4">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"clip-rule="evenodd"></path>
+            </svg>
+        </div>
+        <input type="text" id="table-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Busqueda por empresa">
+        </div>
+      
+        <div class="mt-4">
+          <input type="number" id="table-code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="Busqueda por codigo">
+        </div>
+     </div>
+ <div class="flex flex-col">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="overflow-hidden">
+          <table class="min-w-full">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-black text-sm font-medium text-white px-6 py-4 text-left">
+                  ID
+                </th>
+                <th scope="col" class="bg-blue-600 text-sm font-medium text-white px-6 py-4 text-left">
+                  Código
+                </th>
+                <th scope="col" class="bg-black text-sm font-medium text-white px-6 py-4 text-left">
+                  Nombre Empresa
+                </th>
+              </tr>
+            </thead>
+            <tbody id="data">
+
+              <div id="mensaje-error"></div>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<script src="./api.js"></script>
+</body>
+</html>
