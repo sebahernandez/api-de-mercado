@@ -5,20 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="./style.css">
     <title>API Mercado Público</title>
 </head>
 <body>
-<!-- <table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Código</th>
-            <th>Empresa</th>
-    </thead>
-    <tbody id="data">
-    </tbody>
-</table>
- -->
+
  <h1 class="text-center mt-4 text-5xl">API Mercado Público</h1>
  <h2 class="text-center text-2xl py-4 m-0">By Datapro.cl</h2>
     <div class="flex justify-left">
@@ -36,10 +27,11 @@
         </div>
      </div>
  <div class="flex flex-col">
+  
     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
         <div class="overflow-hidden">
-          <table class="min-w-full">
+          <table class="min-w-full" id="tabla-datos">
             <thead>
               <tr>
                 <th scope="col" class="bg-black text-sm font-medium text-white px-6 py-4 text-left">
@@ -54,7 +46,7 @@
               </tr>
             </thead>
             <tbody id="data">
-
+              <div id="loading"></div>
               <div id="mensaje-error"></div>
             </tbody>
           </table>

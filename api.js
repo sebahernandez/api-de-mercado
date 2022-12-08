@@ -1,6 +1,8 @@
 const search = document.getElementById('table-search');
 const codeSearch = document.getElementById('table-code');
 const mensajeError = document.getElementById('mensaje-error');
+const loader = document.querySelector("#loading");
+const table = document.querySelector("#tabla-datos");
 
 const api =
 "https://api.mercadopublico.cl/servicios/v1/Publico/Empresas/BuscarComprador?ticket=5F4BE76F-B904-4023-A8F7-E69AC185D866";
@@ -25,18 +27,22 @@ const parseData = (data) => {
   document.getElementById('data').innerHTML = body;
 }
 
+window.onload = async function datos(){
+  displayLoading();
+  await fetch(api)
+  .then((response) => response.json())
+  .then((data) => {
+    parseData(data)
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  })
+  .finally(() => {
+    hideLoading();
+    console.log("Finalizado");
+  })
 
-fetch(api)
-.then((response) => response.json())
-.then((data) => {
-  parseData(data)
-  
-})
-.catch((error) => {
-  console.error("Error:", error);
-});
-
-
+}
 // Input de busqueda
 search.addEventListener("input", e => {
   filtrarEmpresa();
@@ -48,10 +54,21 @@ codeSearch.addEventListener("input", e => {
   filtrarCodigo();
 });
 
+// mostrar loading
+function displayLoading(){
+  loader.classList.add("display");
+  setTimeout(() =>{
+    loader.classList.remove("display");
+  },5000);
+}
 
+// ocultar loading
+function hideLoading(){
+  loader.classList.remove("display");
+}
 
 //function filtrar datos
-function filtrarEmpresa(){
+/* function filtrarEmpresa(){
 
   let filter = search.value.toUpperCase()
   let table = document.getElementById("data");
@@ -70,6 +87,23 @@ function filtrarEmpresa(){
       }
     }
   }
+} */
+
+
+// con filter
+function filtrarEmpresa(){
+  
+  let filter = search.value.toUpperCase()
+  let table = document.getElementById("data");
+  let tr = table.getElementsByTagName("tr");
+
+  for (let i = +1; i < tr.length; i++) {
+    if (tr[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
 }
 
 // filtrar por codigo
